@@ -1,0 +1,16 @@
+# 忽略所有数据集文件
+*.mat
+*.pt
+*.npy
+*.csv
+
+# 忽略大型文件夹
+MyDataset/
+dataset/
+SaveModel/
+result_F1/
+
+# 忽略 Python 缓存和环境
+__pycache__/
+.idea/
+.vscode/
