@@ -188,17 +188,7 @@ def random_split(X, Y, train_size=0.7):
 
 
 def distance(X, Y, square=True):
-    """
-    计算两组样本之间的欧几里得距离。
 
-    参数:
-        X (torch.Tensor): 样本集合，维度为d*n。
-        Y (torch.Tensor): 样本集合，维度为d*m。
-        square (bool): 是否返回距离的平方。
-
-    返回:
-        torch.Tensor: 距离矩阵，维度为n*m。
-    """
     n = X.shape[1]
     m = Y.shape[1]
     x = torch.norm(X, dim=0)
@@ -215,17 +205,6 @@ def distance(X, Y, square=True):
         result = torch.sqrt(result)
     return result
 
-
-"""
-    基于Clustering-with-Adaptive-Neighbors (CAN)方法构建图。
-    参数:
-        X (torch.Tensor): 数据点集合，维度为d*n。
-        num_neighbors (int): 每个节点的邻居数量。
-        links (torch.Tensor): 额外的链接（可选）。
-
-    返回:
-        weights, raw_weights (torch.Tensor): 图的权重矩阵。
-    """
 
 
 def build_CAN(X, num_neighbors, links=0):

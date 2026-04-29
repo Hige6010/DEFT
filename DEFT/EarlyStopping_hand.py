@@ -45,5 +45,5 @@ class EarlyStopping:
         if self.verbose:
             pass
             # print(f'Validation loss decreased ({self.val_loss_min:.6f} --> {val_loss:.6f}).  Saving model ...')
-        torch.save(model.state_dict(), f'/home/wangxiaoli/xiaoli/IMv_project/SaveModel/{data_name}/save_{Name}_{miss_rate}.pt')     # 这里会存储迄今最优模型的参数
+        torch.save(model.state_dict(), f'./SaveModel/{data_name}/save_{Name}_{miss_rate}.pt')
         self.val_loss_min = val_loss

@@ -49,7 +49,7 @@ def run(args, unknown_args, device, file_path):
                            dropout=0.)
     StudentModel = StudentModel.to(device)
 
-    teacher_path = f'C:/Users/xiaol/PycharmProjects/IMv_Project/SaveModel/{args.data_name}/save_TNet_{args.miss_rate}.pt'
+    teacher_path = f'./SaveModel/{args.data_name}/save_TNet_{args.miss_rate}.pt'
     # if os.path.exists(teacher_path):
     #     print("load teacher model")
     #     TeacherModel.load_state_dict(torch.load(teacher_path), False)
