@@ -88,10 +88,7 @@ class crs_attention(nn.Module):
         V = self.layerV(node_emb)  # [128, 3, 512]
 
         attn_1 = torch.matmul(Q.unsqueeze(1), K.transpose(-2, -1)) / math.sqrt(self.d_k)  # [128, 1, 3]
-        mask = torch.tril(torch.ones_like(attn_1))
-        attn_1_score = attn_1.masked_fill(mask == 0, -1e9)
-
-        attn_1_weight = F.softmax(attn_1_score * tau, dim=-1)
+        attn_1_weight = F.softmax(attn_1 * tau, dim=-1)
         attn_1_weight = self.proj_drop(attn_1_weight)
 
         attn_2 = torch.matmul(K, K.transpose(-2, -1)) / math.sqrt(self.d_k)
