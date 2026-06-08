@@ -146,3 +146,17 @@ def get_data(path, name, use_mean=True):
                                                                       )
 
     return X_train, Y_train, X_test, Y_test, Sn_train, Sn_test, dims, class_num
+if __name__ == '__main__':
+
+    data_path = "./dataset/"
+    name = 'ROSMAP'
+
+    data_list, Y, Sn, dims, n_view, data_size, class_num = load_data(data_path, name)
+    X = process_data(data_list, n_view, if_meanMax=False)  # StandardScaler
+    idx_dict = split_dataset(Y, p=0.8, seed=999)  # dict{'train', 'test'}
+
+    X_train, Y_train, X_test, Y_test, Sn_train, Sn_test = get_samples(x=X, y=Y,
+                                                                      train_index=idx_dict['tr'],
+                                                                      test_index=idx_dict['te'],
+                                                                      use_mean=False
+                                                                      )
