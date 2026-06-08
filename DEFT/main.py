@@ -8,7 +8,7 @@ import torch
 #import json
 torch.serialization.add_safe_globals(['numpy.core.multiarray._reconstruct',])
 
-dataPath = "../IMv_Project-camera_version2"
+dataPath = "../DEFT"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 if __name__ == '__main__':
