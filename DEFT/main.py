@@ -22,7 +22,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', default=None, type=int)
     parser.add_argument('--lr', type=float, default=0.0005, metavar='LR',
                             help='learning rate [default: 1e-3]')
-    parser.add_argument('--miss_rate', default=0., type=float)  # 保留但不再使用
+    parser.add_argument('--miss_rate', default=0., type=float)  
     parser.add_argument('--patience', type=int, default=5, metavar='LR',
                         help='parameter of Earlystopping [default: 30]')
     parser.add_argument("--teacher_epochs", default=100)
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     parser.add_argument('--lam', default=10, type=float, help="balance factor of kd_loss")
     parser.add_argument('--tau', default=0.5, type=float)
     parser.add_argument('--use_rl_eta', action='store_true', default=False)
-    parser.add_argument('--ood', default=False, type=bool)  # If use ood strategy
+    parser.add_argument('--ood', default=False, type=bool)  
     parser.add_argument('--theta', default=10, type=float, help="balance factor of cka_loss")
     parser.add_argument('--mixup_alpha', default=0.5, type=float,help="Beta distribution parameter (default: 0.5)")
     parser.add_argument('--mixup_temp', default=0.5, type=float,help="Temperature for Mixup Softmax (default: 0.5)")
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     args, unknown_args = parser.parse_known_args()
     dataset_list = ['Scene15']
-    #dataset_list = []#'Caltech101-7','NUS-WIDE','handwritten']
+    #dataset_list = ['Caltech101-7','NUS-WIDE','handwritten']
     for dataset in dataset_list:
         args.data_name = dataset
         # config
@@ -70,8 +70,8 @@ if __name__ == '__main__':
             kd_epochs_list = [100]
             args.label_embedd = 512
             args.lr = 0.0005
-            args.theta = 0#0.001
-            args.mixup_beta = 0#0.001
+            args.theta = 0.001
+            args.mixup_beta = 0.001
             d_model_list = [512]
         elif args.data_name == 'Caltech101-20':
             teacher_epochs_list = [100]
@@ -94,8 +94,8 @@ if __name__ == '__main__':
             kd_epochs_list = [100]
             args.label_embedd = 512
             args.lr = 0.0005
-            args.theta = 0#0.001
-            args.mixup_beta = 0#0.001
+            args.theta = 0.001
+            args.mixup_beta = 0.001
             args.tau = 0.7
             d_model_list = [512]
         elif args.data_name == 'Caltech101-7':
@@ -113,8 +113,8 @@ if __name__ == '__main__':
             kd_epochs_list = [100]
             args.label_embedd = 128
             args.lr = 0.001
-            args.theta = 0#0.001
-            args.mixup_beta = 0#0.05
+            args.theta = 0.001
+            args.mixup_beta = 0.05
             args.batch_size = 32
             args.n_layers = 1
             d_model_list = [128]
@@ -124,8 +124,8 @@ if __name__ == '__main__':
             kd_epochs_list = [100]
             args.label_embedd = 512
             args.lr = 0.0005
-            args.theta = 0#0.001
-            args.mixup_beta= 0#0.05
+            args.theta = 0.001
+            args.mixup_beta= 0.05
             args.batch_size = 128
             args.n_layers = 2
             d_model_list = [512]
